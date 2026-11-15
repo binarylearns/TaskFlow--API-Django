@@ -8,23 +8,46 @@ from .serializers import CategorySerializers,TaskSerializer
 
 
 
-# Create your views here.
 
+
+#this is to display user view
 class ListCreateView(generics.ListCreateAPIView):
     queryset = User.objects.all()
+    serializer_class = UserSerializers
+
+
+# this is to update and display user view
+class ListRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    lookup_field = "pk"
+    serializer_class = UserSerializers
+
+
+
+#This is to list category view in the display
+class ListCategoryView(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializers     
+
+# this is to update, retrive and delete  category view
+class ListCategoryRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    lookup_field = "pk"
     serializer_class = UserSerializers
 
 
 
 
 
-
-class ListCategoryView(generics.ListCreateAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializers     
-
-
-
+# this is to display list view for Task
 class ListTaskView(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+#this is to retrive update and delete list view for Task
+
+class ListTaskRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    lookup_field = "pk"
+    serializer_class = TaskSerializer
+
