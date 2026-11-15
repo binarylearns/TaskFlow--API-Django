@@ -22,6 +22,13 @@ class ListRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "pk"
     serializer_class = UserSerializers
 
+#This is for user detail view
+class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializers
+
+
+
 
 
 #This is to list category view in the display
@@ -35,7 +42,10 @@ class ListCategoryRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView
     lookup_field = "pk"
     serializer_class = UserSerializers
 
-
+#This is for category detail view
+class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializers
 
 
 
@@ -49,5 +59,11 @@ class ListTaskView(generics.ListCreateAPIView):
 class ListTaskRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     lookup_field = "pk"
+    serializer_class = TaskSerializer
+
+#This is for category detail view
+
+class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
