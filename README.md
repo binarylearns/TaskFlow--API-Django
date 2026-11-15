@@ -97,8 +97,8 @@ python manage.py runserver
 - [x] Phase 1: Project setup and environment configuration
 - [x] Phase 2: Database models and serializers 
 - [x] Phase 3: Task and category CRUD operations 
-- [ ] Phase 4: Authentication and permissions [Working on this]
-- [ ] Phase 5: Filtering, searching, and pagination
+- [x] Phase 4: Authentication and permissions 
+- [ ] Phase 5: Filtering, searching, and pagination [Working on this]
 - [ ] Phase 6: Unit testing
 - [ ] Phase 7: API documentation and final improvements
 
@@ -108,7 +108,7 @@ The main objective of this project is to strengthen practical knowledge of REST 
 
 ## 📖 Project Status
 
-**Currently in development –  Phase 3: Task and category CRUD operations s.**
+**Currently in development –  Phase 5: Filtering, searching, and pagination [Working on this].**
 
 More features and improvements will be added as development progresses.
 
