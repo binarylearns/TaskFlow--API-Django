@@ -5,6 +5,8 @@ from .models import Category
 from .models import Task
 from .serializers import UserSerializers
 from .serializers import CategorySerializers,TaskSerializer
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 
 
@@ -14,6 +16,22 @@ from .serializers import CategorySerializers,TaskSerializer
 class ListCreateView(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializers
+   
+
+    #Filtering here
+    # def get_queryset(self):
+    #     queryset = Category.objects.all()
+    #     name = self.request.query_params.get('name')
+    #     if name:
+    #         queryset = queryset.filter(name__icontains=name)
+    #     return queryset
+
+   
+
+
+
+
+
 
 
 # this is to update and display user view
@@ -35,6 +53,10 @@ class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
 class ListCategoryView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializers     
+
+    #For Filtering using pip
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name']
 
 # this is to update, retrive and delete  category view
 class ListCategoryRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
