@@ -5,6 +5,7 @@ from .models import Category
 from .models import Task
 from .serializers import UserSerializers
 from .serializers import CategorySerializers,TaskSerializer
+from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 
 
@@ -18,7 +19,7 @@ class ListCreateView(generics.ListCreateAPIView):
     serializer_class = UserSerializers
    
 
-    #Filtering here
+    #Filtering here not working for category
     # def get_queryset(self):
     #     queryset = Category.objects.all()
     #     name = self.request.query_params.get('name')
@@ -54,9 +55,10 @@ class ListCategoryView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializers     
 
-    #For Filtering using pip
-    filter_backends = [DjangoFilterBackend]
+    #For Filtering and Searching using pip this works
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['name']
+    search_fields = ['name']
 
 # this is to update, retrive and delete  category view
 class ListCategoryRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
