@@ -98,7 +98,7 @@ python manage.py runserver
 - [x] Phase 2: Database models and serializers 
 - [x] Phase 3: Task and category CRUD operations 
 - [x] Phase 4: Authentication and permissions 
-- [ ] Phase 5: Filtering, searching, and pagination [Working on this]
+- [x] Phase 5: Filtering, searching, and pagination [Working on this]
 - [ ] Phase 6: Unit testing
 - [ ] Phase 7: API documentation and final improvements
 
