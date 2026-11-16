@@ -7,6 +7,7 @@ from .serializers import UserSerializers
 from .serializers import CategorySerializers,TaskSerializer
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.pagination import PageNumberPagination
 
 
 
@@ -59,6 +60,11 @@ class ListCategoryView(generics.ListCreateAPIView):
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['name']
     search_fields = ['name']
+
+    #for pagination list
+    pagination_class = PageNumberPagination    
+
+    
 
 # this is to update, retrive and delete  category view
 class ListCategoryRetriveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
